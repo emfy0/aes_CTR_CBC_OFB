@@ -30,7 +30,7 @@ int main()
 
 	uint8_t **decrypted = encryption_decryptionCTR (encrypted, numberofblocks, 1 , key);
 	
-	encrypted = encryption_CBC(decrypted, numberofblocks, IV, key);
+	encrypted = encryption_CBC(inputblocks, numberofblocks, IV, key);
 
 	decrypted = decryption_CBC(encrypted, numberofblocks, IV, key);
 
@@ -41,10 +41,6 @@ int main()
 	printf("%s", make_string_form_block (decrypted, numberofblocks));
 
 	free(inputblocks);
-
-	free(encrypted);
-
-	free(decrypted);
 
 	return 0;
 }
